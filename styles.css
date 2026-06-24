@@ -274,5 +274,90 @@ footer {
     }
     .grid-layout {
         grid-template-columns: 1fr;
+}
+
+/* Print & Presentation Mode */
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    /* Fix invisible PDF bug */
+    .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .lang-switcher, footer {
+        display: none !important;
+    }
+
+    /* Reset grid to block for sequential slides */
+    .grid-layout {
+        display: block !important;
+        margin: 0 !important;
+    }
+
+    .container {
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+    }
+
+    /* Title Slide */
+    .hero {
+        height: 100vh !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        page-break-after: always;
+        break-after: page;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+    }
+
+    /* Each card is a new slide */
+    .card {
+        page-break-after: always;
+        break-after: page;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 0 2rem 0 !important;
+        padding: 2rem !important;
+        /* Center content vertically like a slide */
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Partnership title slide */
+    .partnership-section {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+    }
+    
+    .partnership-section .hero-content {
+        height: 100vh !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        page-break-after: always;
+        break-after: page;
+    }
+
+    /* Make images fit nicely */
+    .card-img-wrapper {
+        max-height: 350px;
+        box-shadow: none !important;
+    }
+    .card-img {
+        max-height: 350px;
+        object-fit: contain;
     }
 }
